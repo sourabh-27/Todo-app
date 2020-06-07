@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title><%= locals.title %></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <div id="main-container">
+        <h1>TODO APP</h1>
+        <form method="POST" action="/create-todo">
+        <div class="row">
+            <label class="label mb1">DESCRIPTION</label>
+            <br>
+            <input required class="mb1" type="text" name="description" placeholder="What do you need to do?">
+        </div>
+        <div class="row2">
+            <div class="sub-row mb1 hover1">
+                <label class="label">CATEGORY</label>
+                <br>
+                <select id="category">
+                    <option value="choose" default>Choose a category</option>
+                    <option value="personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="sub-row hover2">
+                <label class="label">DUE DATE</label>
+                <br>
+                <input id="date" type="date" name="description">
+            </div>
+        </div>
+
+        <div class="row3">
+            <div class="button">
+                <button type="submit"><i class="fas fa-plus"></i> ADD TASK</button>
+            </div>
+            <div class="button">
+                <a href="">
+                    <i style="margin-right: 0.6rem;" class="fas fa-trash-alt"></i>DELETE
+                </a>
+            </div>
+        </div>
+        </form>
+
+        <form>
+            <% for(let i of todo_list){ %>
+                <div class="row4">
+                    <input class="mb2" type="checkbox">
+                    <div class="inner-container">
+                        <label class="label mb1"><%= i.description %></label>
+                        <p class="mb1">
+                            <i class="far fa-calendar-alt"></i>
+                            <%= i.description %>
+                        </p>
+                    </div>
+                    <div class="inner-container2">
+                        <div id="set-color">
+                            <p id="category-type">School</p>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
