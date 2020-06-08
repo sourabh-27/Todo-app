@@ -9,15 +9,17 @@ const Todo = require('./models/todo');
 // firing up the express
 const app = express();
 
-//Use express router
-app.use('/', require('./routes/index'));
-
 // Setting up view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+app.use(express.urlencoded({extended: true}));
+
 // To use the assets folder
 app.use(express.static('assets'));
+
+//Use express router
+app.use('/', require('./routes/index'));
 
 //Listening to the port
 app.listen(port, function(err){

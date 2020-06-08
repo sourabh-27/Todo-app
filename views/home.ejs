@@ -11,41 +11,41 @@
 <body>
     <div id="main-container">
         <h1>TODO APP</h1>
-        <form method="POST" action="/create-todo">
-        <div class="row">
-            <label class="label mb1">DESCRIPTION</label>
-            <br>
-            <input required class="mb1" type="text" name="description" placeholder="What do you need to do?">
-        </div>
-        <div class="row2">
-            <div class="sub-row mb1 hover1">
-                <label class="label">CATEGORY</label>
+        <form action="/create-todo" method="POST">
+            <div class="row">
+                <label class="label mb1">DESCRIPTION</label>
                 <br>
-                <select id="category">
-                    <option value="choose" default>Choose a category</option>
-                    <option value="personal">Personal</option>
-                    <option value="Work">Work</option>
-                    <option value="School">School</option>
-                    <option value="Other">Other</option>
-                </select>
+                <input required class="mb1" type="text" name="description" placeholder="What do you need to do?">
             </div>
-            <div class="sub-row hover2">
-                <label class="label">DUE DATE</label>
-                <br>
-                <input id="date" type="date" name="description">
+            <div class="row2">
+                <div class="sub-row mb1 hover1">
+                    <label class="label">CATEGORY</label>
+                    <br>
+                    <select id="category" name="categoryVal">
+                        <option value="choose" default>Choose a category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="School">School</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="sub-row hover2">
+                    <label class="label">DUE DATE</label>
+                    <br>
+                    <input id="date" type="date" name="dateVal">
+                </div>
             </div>
-        </div>
 
-        <div class="row3">
-            <div class="button">
-                <button type="submit"><i class="fas fa-plus"></i> ADD TASK</button>
+            <div class="row3">
+                <div class="button">
+                    <button type="submit"><i class="fas fa-plus"></i> ADD TASK</button>
+                </div>
+                <div class="button">
+                    <a href="">
+                        <i style="margin-right: 0.6rem;" class="fas fa-trash-alt"></i>DELETE
+                    </a>
+                </div>
             </div>
-            <div class="button">
-                <a href="">
-                    <i style="margin-right: 0.6rem;" class="fas fa-trash-alt"></i>DELETE
-                </a>
-            </div>
-        </div>
         </form>
 
         <form>
@@ -56,12 +56,12 @@
                         <label class="label mb1"><%= i.description %></label>
                         <p class="mb1">
                             <i class="far fa-calendar-alt"></i>
-                            <%= i.description %>
+                            <%= i.date %>
                         </p>
                     </div>
                     <div class="inner-container2">
                         <div id="set-color">
-                            <p id="category-type">School</p>
+                            <p class="category-type"><%= i.category %></p>
                         </div>
                     </div>
                 </div>

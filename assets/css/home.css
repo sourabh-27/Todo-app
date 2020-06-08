@@ -204,7 +204,7 @@ button[type="submit"]{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     height: 100%;
     width: 30rem;
 }
@@ -221,7 +221,7 @@ button[type="submit"]{
 }
 
 .inner-container2{
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     height: 100%;
     width: 10rem;
     display: flex;
@@ -236,4 +236,11 @@ button[type="submit"]{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.category-type{
+    color: white;
+    letter-spacing: 0.1rem;
+    font-size: 1.06rem;
+    font-weight: 500;
 }
