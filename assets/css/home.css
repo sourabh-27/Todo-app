@@ -1,6 +1,6 @@
+/* css for the body as it has some already inherited things */
 body{
     margin: 0;
-    background-color: darkgray;
     display: flex;
     justify-content: center;
     font-weight: 700;
@@ -22,7 +22,20 @@ form{
     overflow: hidden;
 }
 
-/* Each row of the app */
+
+
+/* Margin classes */
+.mb1{
+    margin-left: 1rem;
+}
+
+.mb2{
+    margin-left: 2rem;
+}
+
+
+
+/* Row 1 which contains description */
 .row{
     /* border: 2px solid yellow; */
     width: 100%;
@@ -37,13 +50,6 @@ form{
     background-color: rgb(192, 188, 188);
 }
 
-.mb1{
-    margin-left: 1rem;
-}
-
-.mb2{
-    margin-left: 2rem;
-}
 /* Header of the type of input */
 .label{
     color: rgb(92, 96, 102);
@@ -60,6 +66,7 @@ form{
     width: 60%;
     font-size: 1rem;
 }
+
 
 
 /* Row 2 Stylings */
@@ -122,11 +129,13 @@ select option{
     border: none;
 }
 
-
+/* Row border bottoms to bring the horizontal line */
 .row, .row2, .row3, .row4{
     border-bottom: 1px solid black;
     margin-top: 0.5rem;
 }
+
+
 
 /* Row 3 stylings */
 .row3{
@@ -220,6 +229,9 @@ button[type="submit"]{
     color: rgb(146, 174, 190);
 }
 
+
+
+/* Stylings for the list of todo's, last row */
 .inner-container2{
     /* border: 2px solid yellow; */
     height: 100%;

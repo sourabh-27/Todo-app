@@ -1,5 +1,7 @@
-const Todo = require('../models/todo');
-const moment = require('moment');
+const Todo = require('../models/todo'); //Fetch the todo as it will not work
+const moment = require('moment'); //moment.js because of date, its another module
+
+//Creating the new todo 
 module.exports.createTodo = function(req, res){
     var datee = moment(req.body.dateVal).format('ll');
     console.log("Requesting", req.body.categoryVal);

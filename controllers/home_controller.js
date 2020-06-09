@@ -1,4 +1,6 @@
 const Todo = require('../models/todo');
+
+//To render the home page with list of todo's in the database
 module.exports.home = function(req, res){
     Todo.find({}, function(err, todos){
         if(err){

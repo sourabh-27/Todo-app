@@ -1,6 +1,7 @@
 const Todo = require('../models/todo');
 
-console.log("Inside delete controller");
+// console.log("Inside delete controller");
+//Deleting the list of all todo which had checkboxe's as checked
 module.exports.delete = function(req, res){
     let id = JSON.parse(req.query.todo);
     for(let i = 0; i < id.length; i++){

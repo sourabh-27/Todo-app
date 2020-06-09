@@ -18,4 +18,6 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 console.log("Successfully create the schema");
+
+//Exporting the todo so it can be used outside 
 module.exports = Todo;

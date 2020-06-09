@@ -13,6 +13,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+//Query params so that it works we need this line
 app.use(express.urlencoded({extended: true}));
 
 // To use the assets folder

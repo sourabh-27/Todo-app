@@ -1,4 +1,4 @@
-// console.log("Hello, you are inside javascript");
+//This is to change the color of todo icon according to the category type
 $( document ).ready(function() {
     var colors = {
         "School": "F2A700", "Work":"9C00AF", "Personal":"3C6CB8", "Other": "66e0c6" 
