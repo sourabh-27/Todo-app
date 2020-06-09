@@ -6,23 +6,31 @@
     <title><%= locals.title %></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/animate_background.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
     <div id="main-container">
         <h1>TODO APP</h1>
+
+
+        <!-- First form to add the todo -->
         <form action="/create-todo" method="POST">
+            <!-- First row of just description -->
             <div class="row">
                 <label class="label mb1">DESCRIPTION</label>
                 <br>
                 <input required class="mb1" type="text" name="description" placeholder="What do you need to do?">
             </div>
+
+
+            <!-- Second row for category and date -->
             <div class="row2">
                 <div class="sub-row mb1 hover1">
                     <label class="label">CATEGORY</label>
                     <br>
-                    <select id="category" name="categoryVal">
-                        <option value="choose" default>Choose a category</option>
+                    <select id="category" name="categoryVal" required>
+                        <option value="" disabled selected>Choose a category</option>
                         <option value="Personal">Personal</option>
                         <option value="Work">Work</option>
                         <option value="School">School</option>
@@ -32,26 +40,32 @@
                 <div class="sub-row hover2">
                     <label class="label">DUE DATE</label>
                     <br>
-                    <input id="date" type="date" name="dateVal">
+                    <input class="datepicker" id="date" type="date" name="dateVal" required>
                 </div>
             </div>
 
+
+            <!-- Third row for buttons -->
             <div class="row3">
                 <div class="button">
                     <button type="submit"><i class="fas fa-plus"></i> ADD TASK</button>
                 </div>
                 <div class="button">
-                    <a href="">
+                    <!-- pass the array here of active checkboxes -->
+                    <a onclick="getCheckboxes()">
                         <i style="margin-right: 0.6rem;" class="fas fa-trash-alt"></i>DELETE
                     </a>
                 </div>
             </div>
         </form>
 
+
+        <!-- This row to show all the todo's created and checkbox as well -->
         <form>
             <% for(let i of todo_list){ %>
                 <div class="row4">
-                    <input class="mb2" type="checkbox">
+                    <!-- How to know if this is active and other checkboxes as well for deletion and pass it to controller? -->
+                    <input class="mb2 delete-checkbox" type="checkbox" value="Try">
                     <div class="inner-container">
                         <label class="label mb1"><%= i.description %></label>
                         <p class="mb1">
@@ -71,5 +85,26 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
+
+    <!-- This is the script to pass the data of selected checkboxes -->
+    <script>
+        var getCheckbox = $('.delete-checkbox');
+        function getCheckboxes(){
+            var arr = [];
+            for(let i = 0; i < getCheckbox.length; i++){
+                console.log(getCheckbox[i].checked);
+                var value = getCheckbox[i].checked;
+                if(value){
+                    var todo_list = <%- JSON.stringify(todo_list) %>;
+                    arr.push(todo_list[i]._id);
+                    console.log(todo_list[i]._id);
+                }
+            }
+            for(let i=0; i < arr.length; i++){
+                console.log(arr[i]);
+            }
+            location.href = "/delete-todo/?todo="+JSON.stringify(arr);
+        }
+    </script>
 </body>
 </html>

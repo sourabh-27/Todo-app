@@ -5,6 +5,7 @@ const homeController = require('../controllers/home_controller'); //fetching the
 
 routes.get('/', homeController.home); //Calling the home function
 routes.use('/create-todo', require('./create_todo'));
+routes.use('/delete-todo', require('./delete_todo'));
 
 module.exports = routes;
 
